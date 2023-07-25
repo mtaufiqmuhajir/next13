@@ -2,7 +2,7 @@
 
 export default function About() {
     return (
-      <div>test dashboard</div>
+      <div>test dashboard afad</div>
     )
   }
   
