@@ -15,7 +15,7 @@ export default function Home () {
         <Kategori text={'Kandang'}/>
       </div>
       <label className='font-bold'>Produk</label>
-      <div className='grid grid-cols-2 gap-2 mt-3'>
+      <div className='grid grid-cols-2 md:grid-cols-4 gap-2 mt-3'>
         {array.map((k, v) => {
           return <Produk key={k} />
         })}
