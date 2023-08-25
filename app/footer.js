@@ -1,11 +1,16 @@
-import { useRouter } from 'next/navigation'
+import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import React from 'react'
 
-export default function Footer () {
+export default function Footer() {
   const router = useRouter()
+  const pathname = usePathname();
+  
   return (
     <div className='h-16 bg-white flex justify-between px-7'>
-      <button className='flex flex-col items-center justify-center text-primary'>
+      <button className={`flex flex-col items-center justify-center  ${pathname == '/' ? 'text-primary' : ''}`}
+        onClick={() => {
+          router.push('/')
+        }}>
         <svg
           xmlns='http://www.w3.org/2000/svg'
           fill='none'
@@ -22,7 +27,10 @@ export default function Footer () {
         </svg>
         <span className='text-xs'>Dahboard</span>
       </button>
-      <button className='flex flex-col items-center justify-center'>
+      <button className={`flex flex-col items-center justify-center ${pathname == '/keranjang' ? 'text-primary' : ''}`}
+        onClick={() => {
+          router.push('/keranjang')
+        }}>
         <svg
           xmlns='http://www.w3.org/2000/svg'
           fill='none'
