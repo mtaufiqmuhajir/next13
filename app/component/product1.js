@@ -2,7 +2,7 @@
 import Image from 'next/image'
 import React, { useState } from 'react'
 
-export default function Product1() {
+export default function Product1({product}) {
     const [count, setCount] = useState(0)
     return (
         <div className=''>
@@ -17,8 +17,8 @@ export default function Product1() {
                     height={300} />
             </div>
             <div className='flex flex-col'>
-                <span>Macbook Pro</span>
-                <span>Rp. 200.000</span>
+                <span>{product.name}</span>
+                <span>{product.price}</span>
                 <div className='flex gap-2'>
                     <a className='cursor-pointer bg-white border-secondary border-[1px] rounded-lg px-2'
                         onClick={() => {

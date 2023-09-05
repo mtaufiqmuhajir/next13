@@ -4,8 +4,16 @@ import Kategori from './kategori'
 import Product1 from './component/product1'
 import Kategori1 from './component/kategori'
 
-export default function Home () {
+async function getProduct() {
+  let response = await fetch("http://localhost:5000/products", {
+    cache: 'no-cache'
+  });
+  return response.json();
+}
+
+export default async function Home () {
   const array = [...Array(10)]
+  let products = await getProduct(); 
   return (
     <div>
       <label className='font-bold'>Kategori</label>
@@ -23,9 +31,9 @@ export default function Home () {
       </div>
       <label className='font-bold'>Produk</label>
       <div className='grid grid-cols-2 md:grid-cols-4 gap-2 mt-3'>
-        {array.map((k, v) => {
+        {products.map((v, k) => {
           // return <Produk key={k} />
-          return <Product1 key={k}/>
+          return <Product1 key={v.id} product={v} />
         })}
       </div>
     </div>
